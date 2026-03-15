@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multilingual Translation Web Application</title>
+  <meta name="description" content="Responsive multilingual translation web application with speech, copy, language switching, and dark mode.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="translator" aria-labelledby="app-title">
+      <div class="translator__hero">
+        <div>
+          <p class="eyebrow">ASSIGNMENT 3</p>
+          <h1 id="app-title">Multilingual Translation Web Application</h1>
+          <p class="hero-copy">Translate short messages between languages with live updates, speech playback, clipboard actions, and a resilient MyMemory integration.</p>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span id="themeToggleLabel">Dark mode</span>
+        </button>
+      </div>
+
+      <div class="translator__panel">
+        <div class="controls" aria-label="Translation controls">
+          <div class="control-group">
+            <label class="control-label" for="sourceLanguage">Source language</label>
+            <select id="sourceLanguage" class="select-control">
+              <option value="auto">Detect Language</option>
+              <option value="en" selected>English</option>
+              <option value="fr">French</option>
+            </select>
+          </div>
+
+          <button class="swap-button" id="swapLanguages" type="button" aria-label="Swap source and target languages">
+            <span aria-hidden="true">⇄</span>
+          </button>
+
+          <div class="control-group">
+            <label class="control-label" for="targetLanguage">Target language</label>
+            <select id="targetLanguage" class="select-control">
+              <option value="fr" selected>French</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="de">German</option>
+              <option value="it">Italian</option>
+              <option value="pt">Portuguese</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <section class="translation-card translation-card--input" aria-labelledby="inputTitle">
+            <div class="card-heading">
+              <div>
+                <p class="card-kicker">Input</p>
+                <h2 id="inputTitle">Original message</h2>
+              </div>
+              <span class="status-badge" id="detectedLanguageBadge">English</span>
+            </div>
+
+            <label class="sr-only" for="inputText">Text to translate</label>
+            <textarea id="inputText" maxlength="500" spellcheck="true" placeholder="Type something to translate"></textarea>
+
+            <div class="card-meta">
+              <p id="inputHint">Real-time translation is enabled with debounce.</p>
+              <p class="char-counter" id="characterCounter">0/500</p>
+            </div>
+
+            <div class="card-actions">
+              <button class="utility-button" id="listenInput" type="button">Listen</button>
+              <button class="utility-button" id="copyInput" type="button">Copy</button>
+            </div>
+          </section>
+
+          <section class="translation-card translation-card--output" aria-labelledby="outputTitle">
+            <div class="card-heading">
+              <div>
+                <p class="card-kicker">Output</p>
+                <h2 id="outputTitle">Translated message</h2>
+              </div>
+              <span class="status-badge status-badge--quiet" id="requestStateBadge">Ready</span>
+            </div>
+
+            <label class="sr-only" for="outputText">Translated text</label>
+            <textarea id="outputText" readonly placeholder="Translation appears here"></textarea>
+
+            <div class="card-meta">
+              <p id="translationMeta">Default translation loads on page start.</p>
+              <p class="char-counter" id="outputCounter">0 chars</p>
+            </div>
+
+            <div class="card-actions">
+              <button class="utility-button" id="listenOutput" type="button">Listen</button>
+              <button class="utility-button" id="copyOutput" type="button">Copy</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="translate-action">
+          <button class="translate-button" id="translateButton" type="button">Translate</button>
+        </div>
+
+        <div class="feedback-panel" aria-live="polite">
+          <p class="feedback-message" id="feedbackMessage">Preparing initial translation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
