@@ -17,15 +17,9 @@ This project is a responsive translation interface built with HTML, CSS, and Van
 
 ## Setup
 
-1. Open the ASSIGNMENT 3 folder in VS Code.
+1. Open the project folder in VS Code.
 2. Run the project with a simple static server.
 3. Open index.html in the browser through that server.
-
-Examples of simple static servers:
-
-- VS Code Live Server extension
-- `npx serve "ASSIGNMENT 3"`
-- `python -m http.server` from inside the ASSIGNMENT 3 folder
 
 ## Files
 
